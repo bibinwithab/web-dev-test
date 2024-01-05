@@ -4,7 +4,6 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const { logger } = require("./middleware/logger");
-const { errorHandler } = require("./middleware/errorHandler");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -34,7 +33,6 @@ app.all("*", (req, res) => {
   }
 });
 
-app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`server up on http://localhost:${PORT}`);
